@@ -4,8 +4,8 @@ import Result from './components/Result.jsx';
 
 function NumberGuessingGame() {
 
-  const {randomNumber, setRandomNumber} = useState(Math.floor(Math.random() * 100 + 1));
-  const [number, setNumber] = useState();
+  const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 100 + 1));
+  const [number, setNumber] = useState(50);
   const [text, setText] = useState("Geben Sie eine Zahl von 1 bis 100 ein.")
 
   const handleClick = (e) => {
@@ -17,7 +17,7 @@ function NumberGuessingGame() {
       setText("Zahl erfolgreich erraten!")
     }
   }
-  
+
   return (
     <div>
       <h1>Zahlenratespiel</h1>
