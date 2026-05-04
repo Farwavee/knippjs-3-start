@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import NumberInput from './components/NumberInput.jsx';
 import Result from './components/Result.jsx';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 
 function NumberGuessingGame() {
 
@@ -16,7 +18,7 @@ function NumberGuessingGame() {
     const data = await res.json();
     setRandomNumber(data.number);
     setLoading(false);
-    }
+  }
 
   useEffect(() => { fetchRandom() }, []);
 
@@ -30,13 +32,13 @@ function NumberGuessingGame() {
     }
   }
 
-  return (
-    <div>
+  return loading ? <div>Wird geladen.</div> : (
+    <Container>
       <h1>Zahlenratespiel</h1>
-      <NumberInput number={number} setNumber={setNumber}/>
-      <button onClick={handleClick}>Zahl prüfen!</button>
-      <Result text={text}/>
-    </div>
+      <NumberInput number={number} setNumber={setNumber} />
+      <Button onClick={handleClick}>Zahl prüfen!</Button>
+      <Result text={text} />
+    </Container>
   );
 }
 
